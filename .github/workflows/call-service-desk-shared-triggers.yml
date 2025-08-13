@@ -1,0 +1,13 @@
+# .github/workflows/trigger-auto-add.yml in blg-sd-abc repo
+
+name: Trigger reusable project action
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  call-shared-workflow:
+    uses: bigledger/blg-int-operations-projects/.github/workflows/shared-sd-issue-status-change-trigger.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.BLG_ISSUE_WORKFLOW }}
